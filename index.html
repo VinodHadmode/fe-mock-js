@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasaiVerse Event</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .btn {
+            background-color: teal;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn" id="user-btn">User Section</button>
+        <button class="btn" id="admin-btn">Admin Section</button>
+    </div>
+
+    <h1>Registration Form</h1>
+
+    <form onsubmit="handleSubmit()">
+        <input type="text" name="name" placeholder="Name" id="name"> <br><br>
+
+        <input type="text" name="age" placeholder="Age" id="age"> <br><br>
+        <input type="text" placeholder="place" id="place"> <br><br>
+
+        <select name="batch" id="batch-name">
+            <option>Batch Name</option>
+            <option value="web13">WEB-13</option>
+            <option value="web14">WEB-14</option>
+            <option value="web15">WEB-15</option>
+        </select>
+        <br><br>
+        <select name="profession" id="profession-name">
+            <option>Profession </option>
+            <option value="fsd">FSD</option>
+            <option value="frontend">Frontend</option>
+            <option value="backend">Backend</option>
+        </select>
+        <br><br>
+        <input type="submit">
+    </form>
+
+</body>
+
+</html>
+<script>
+    let userbtn = document.getElementById("user-btn").addEventListener("click", userSection)
+
+    let adminbtn = document.getElementById("admin-btn").addEventListener("click", adminSection)
+
+    let name = document.getElementById("name").value
+    let age = document.getElementById("age").value
+    let place = document.getElementById("place").value
+    let batch = document.getElementById("batch-name").value
+    let profession = document.getElementById("profession-name").value
+
+    //console.log(name);
+    function handleSubmit(e) {
+        e.preventDefault()
+        let payload = {
+            name,
+            age, place, batch_name: batch, profession
+        }
+
+    }
+</script>
